@@ -1,3 +1,4 @@
 صورتا الأجواء في public/hero مولّدتان بـAntigravity باشتراك المالك (2026-10-28)، للأجواء لا لمشروع للشركة:
 villa.webp ← agy conversation 9963471e-e5d9-4b1e-9ec7-05f4e690c380
 steel.webp ← agy conversation 59889e2e-0436-437f-91dd-a127281654e5
+public/og.jpg (بطاقة المشاركة 1200×630): مركّبة من villa.webp والشعار والاسم بخطّي IBM Plex Sans Arabic وManrope؛ للأجواء لا لمشروع للشركة.

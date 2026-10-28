@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   turbopack: { root: process.cwd() },
+  // One 404 page for both languages: the site has two root layouts ((root) and [lang]), so none composes it.
+  experimental: { globalNotFound: true },
 };
 
 export default nextConfig;

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { COPY } from "@/content/copy";
 import { SHORT, whatsapp, type Locale } from "@/content/site";
@@ -19,6 +20,9 @@ export function Header({ lang }: { lang: Locale }) {
     { href: `/${lang}/#contact`, label: n.contact[lang] },
   ];
   const other = lang === "ar" ? "en" : "ar";
+  // The other language opens the same page, not its home.
+  const here = usePathname().replace(/^\/(ar|en)(?=\/|$)/, `/${other}`);
+  const otherHref = here.endsWith("/") ? here : `${here}/`;
   return (
     <header className="header">
       <div className="container header__bar">
@@ -31,7 +35,7 @@ export function Header({ lang }: { lang: Locale }) {
               {l.label}
             </a>
           ))}
-          <Link href={`/${other}/`} className="header__lang" lang={other}>
+          <Link href={otherHref} className="header__lang" lang={other}>
             {n.lang[lang]}
           </Link>
         </nav>

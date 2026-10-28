@@ -3,16 +3,13 @@ import { notFound } from "next/navigation";
 import { COPY } from "@/content/copy";
 import { GROUPS, PROJECTS, VILLAS, VILLA_PHOTOS } from "@/content/projects";
 import { NAME, isLocale } from "@/content/site";
+import { pageMeta } from "@/content/meta";
 import { Contact } from "@/components/Contact";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return {
-    title: `${COPY.projectsPage.title[lang]} | ${NAME[lang]}`,
-    description: COPY.projectsPage.lede[lang],
-    alternates: { canonical: `/${lang}/projects/`, languages: { ar: "/ar/projects/", en: "/en/projects/", "x-default": "/ar/projects/" } },
-  };
+  return pageMeta(lang, "projects/", `${COPY.projectsPage.title[lang]} | ${NAME[lang]}`, COPY.projectsPage.lede[lang]);
 }
 
 /** Every project in the profile, by group, with its photos and its figures. */

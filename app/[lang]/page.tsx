@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { preload } from "react-dom";
 import { ArrowRight, Building2, Factory, Home as HomeIcon, Landmark, PaintRoller, Warehouse } from "lucide-react";
 import { COPY } from "@/content/copy";
 import { isLocale, whatsapp } from "@/content/site";
@@ -17,6 +18,7 @@ const Arrow = () => <ArrowRight size={16} aria-hidden="true" className="flip" />
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
+  preload("/hero/villa.webp", { as: "image", fetchPriority: "high" });
   const c = COPY;
   const ar = lang === "ar";
   const villaCount = VILLAS.reduce((n, v) => n + (v.note.ar.startsWith("أربع") ? 4 : v.note.ar.startsWith("ثلاث") ? 3 : 1), 0);

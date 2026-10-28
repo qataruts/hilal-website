@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE_URL } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function Root() {
     <>
       <meta httpEquiv="refresh" content="0; url=/ar/" />
       <p style={{ fontFamily: "Tahoma, Arial, sans-serif", padding: 24 }}>
-        <a href="/ar/">هندسة الهلال للتجارة والمقاولات</a> · <a href="/en/">HILAL Engineering</a>
+        <Link href="/ar/">هندسة الهلال للتجارة والمقاولات</Link> · <Link href="/en/">HILAL Engineering</Link>
       </p>
     </>
   );

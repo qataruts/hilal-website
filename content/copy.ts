@@ -1,5 +1,3 @@
-import type { L } from "./site";
-
 /**
  * The site's words, from the company's own profile (hilal/بروفايل هندسة الهلال2.pdf): its
  * principles (الأمانة – الجودة – السرعة), its villa service from design to handover, and its

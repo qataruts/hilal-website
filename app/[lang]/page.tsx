@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Building2, Factory, Home as HomeIcon, Landmark, PaintRoller, Warehouse } from "lucide-react";
+import { ArrowRight, Building2, Factory, Home as HomeIcon, Landmark, PaintRoller, Warehouse } from "lucide-react";
 import { COPY } from "@/content/copy";
 import { isLocale, whatsapp } from "@/content/site";
 import { PROJECTS, VILLAS, VILLA_PHOTOS } from "@/content/projects";
@@ -11,6 +11,8 @@ const ICONS = { Home: HomeIcon, Factory, Warehouse, Building2, Landmark, PaintRo
 
 /** The projects the home page shows, each with a real photo from the company's profile. */
 const FEATURED = ["juices", "plastics", "awamer-shops", "awamer-store", "roads", "fence"];
+
+const Arrow = () => <ArrowRight size={16} aria-hidden="true" className="flip" />;
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -25,7 +27,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     { n: villaCount, label: c.stats.villas[lang] },
     { n: villaArea.toLocaleString("en-US"), label: c.stats.area[lang] },
   ];
-  const Arrow = () => <ArrowLeft size={16} aria-hidden="true" className="flip" />;
 
   return (
     <>
